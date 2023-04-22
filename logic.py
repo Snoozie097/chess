@@ -22,7 +22,7 @@ class Logic:
             # King castling moves
             if self.board.squares[self.last_move[0]][self.last_move[1]].piece_index == 5:
                 King.checkCastling(self)
-                
+
         for move in self.moves:
             pygame.draw.circle(self.board.surface, (17, 69, 150), \
                 (self.board.squares[move[0]][move[1]].x_middle, self.board.squares[move[0]][move[1]].y_middle), 10)
@@ -53,6 +53,7 @@ class Logic:
         if self.castling[3] == True and i == 2 and j == 7:
             self.board.squares[3][7].mapPiece(self.board.squares[0][7])
             self.board.squares[0][7].clearSquare()  
+
 
     def checkIfDoubleMove(self, i, start_j, end_j):
         if abs(start_j - end_j) == 2:

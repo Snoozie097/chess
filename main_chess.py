@@ -32,7 +32,6 @@ def mainloop():
         if (move + 2) % 2 == 1: round = player2; last_round = player1
 
         pygame.display.update()        
-        Logic.showPossibleMoves(round, board)
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -48,7 +47,9 @@ def mainloop():
                     move += round.movePiece(pygame.mouse.get_pos())
                     board.drawBoard()
                     board.loadPieces()
-                    round.startRound()      
+                    round.startRound()
+                    Logic.showPossibleMoves(last_round, board)
+
                 except TypeError:
                     board.drawBoard()
                     board.loadPieces()
